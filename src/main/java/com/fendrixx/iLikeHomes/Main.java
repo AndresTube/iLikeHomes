@@ -3,6 +3,7 @@ package com.fendrixx.iLikeHomes;
 import java.io.File;
 import java.io.IOException;
 
+import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -12,6 +13,9 @@ import com.fendrixx.iLikeHomes.gui.GuiManager;
 import com.fendrixx.iLikeHomes.handlers.HomeTabCompleter;
 import com.fendrixx.iLikeHomes.listeners.InventoryListener;
 import com.fendrixx.iLikeHomes.managers.TeleportManager;
+
+import net.md_5.bungee.api.ChatColor;
+
 import com.fendrixx.iLikeHomes.commands.SetHomeCommand;
 import com.fendrixx.iLikeHomes.commands.HomeCommand;
 import com.fendrixx.iLikeHomes.commands.HomesCommand;
@@ -54,13 +58,16 @@ public class Main extends JavaPlugin {
         getServer().getPluginManager().registerEvents(
                 new InventoryListener(this.guiManager, this.configHandler, teleportManager, messageManager), this);
         getServer().getPluginManager().registerEvents(this.teleportManager, this);
-        getLogger().info("§8[§6i§eLike§6Homes§8] §aLikeHomes has been enabled!");
-        getLogger().info("§8[§6i§eLike§6Homes§8] §eTy for using my plugin! §8~ §7Fendrixx");
+        Bukkit.getConsoleSender()
+                .sendMessage(ChatColor.translateAlternateColorCodes('&', "&8[&6i&eLike&6Homes&8] &aPlugin enabled!"));
+        Bukkit.getConsoleSender().sendMessage(ChatColor.translateAlternateColorCodes('&',
+                "&8[&6i&eLike&6Homes&8] &ety for using my plugin! &8~ Fendrixx"));
     }
 
     @Override
     public void onDisable() {
-        getLogger().info("§8[§6i§eLike§6Homes§8] §aLikeHomes has been disabled!");
+        Bukkit.getConsoleSender()
+                .sendMessage(ChatColor.translateAlternateColorCodes('&', "&8[&6i&eLike&6Homes&8] &cPlugin disabled!"));
     }
 
     public void createConfigurationHomes() {
@@ -94,6 +101,7 @@ public class Main extends JavaPlugin {
         // update gui manager
         this.guiManager = new GuiManager(this.configHandler, this.messageManager);
 
-        getLogger().info("§8[§6i§eLike§6Homes§8] §aPlugin reloaded!");
+        Bukkit.getConsoleSender()
+                .sendMessage(ChatColor.translateAlternateColorCodes('&', "&8[&6i&eLike&6Homes&8] &aPlugin reloaded!"));
     }
 }
