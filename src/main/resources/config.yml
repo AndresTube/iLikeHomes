@@ -1,3 +1,4 @@
+# time the player has to stay quiet before teleporting to a home
 # in seconds
 teleport-warmup: 3
 # max homes a player can have (ignored with OP)
