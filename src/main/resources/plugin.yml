@@ -1,0 +1,20 @@
+name: iLikeHomes
+version: 1.0.0
+main: com.fendrixx.iLikeHomes.Main
+
+commands:
+  ilikehomes:
+    description: Reload the plugin/Main command
+    usage: /ilikehomes reload
+  sethome:
+    description: Set a home
+    usage: /sethome <name>
+  homes:
+    description: Open your homes
+    usage: /homes
+  home:
+    description: Teleport to a home
+    usage: /home <name>
+  delhome:
+    description: Delete a home
+    usage: /delhome <name>

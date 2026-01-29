@@ -1,0 +1,7 @@
+# in seconds
+teleport-warmup: 3
+# max homes a player can have (ignored with OP)
+max-homes: 5
+
+
+# this config is short as hell bro XDDD
