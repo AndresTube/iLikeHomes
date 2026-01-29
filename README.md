@@ -47,6 +47,7 @@ also dont forget that after modify config.yml/messages.yml you can reload the pl
 ## License
 - MIT
 
+### Note
 _this is my third plugin lol, the last one was very useless, dont download it honestly, i give my best making this, enjoy it_
 
 ## Contact
