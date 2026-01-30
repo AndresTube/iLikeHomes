@@ -39,6 +39,10 @@ public class MessagesHandler {
             msg = msg.replace("%home%", replacements[0]);
         }
 
+        if (replacements.length > 1) {
+            msg = msg.replace("%seconds%", replacements[1]);
+        }
+
         return prefix + colorize(msg);
     }
 

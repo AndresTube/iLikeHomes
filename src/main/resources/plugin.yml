@@ -6,15 +6,37 @@ commands:
   ilikehomes:
     description: Reload the plugin/Main command
     usage: /ilikehomes reload
+    permission: ilikehomes.reload
   sethome:
     description: Set a home
     usage: /sethome <name>
+    permission: ilikehomes.sethome
   homes:
     description: Open your homes
     usage: /homes
+    permission: ilikehomes.homes
   home:
     description: Teleport to a home
     usage: /home <name>
+    permission: ilikehomes.home
   delhome:
     description: Delete a home
     usage: /delhome <name>
+    permission: ilikehomes.delhome
+
+permissions:
+  ilikehomes.reload:
+    description: Reload the plugin/Main command
+    default: op
+  ilikehomes.sethome:
+    description: Set a home
+    default: true
+  ilikehomes.homes:
+    description: Open your homes
+    default: true
+  ilikehomes.home:
+    description: Teleport to a home
+    default: true
+  ilikehomes.delhome:
+    description: Delete a home
+    default: true

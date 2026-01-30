@@ -10,13 +10,16 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 import com.fendrixx.iLikeHomes.config.ConfigHandler;
 import com.fendrixx.iLikeHomes.gui.GuiManager;
+import com.fendrixx.iLikeHomes.handlers.DelHomeTabCompleter;
 import com.fendrixx.iLikeHomes.handlers.HomeTabCompleter;
+import com.fendrixx.iLikeHomes.handlers.ReloadTabCompleter;
 import com.fendrixx.iLikeHomes.listeners.InventoryListener;
 import com.fendrixx.iLikeHomes.managers.TeleportManager;
 
 import net.md_5.bungee.api.ChatColor;
 
 import com.fendrixx.iLikeHomes.commands.SetHomeCommand;
+import com.fendrixx.iLikeHomes.commands.DelHomeCommand;
 import com.fendrixx.iLikeHomes.commands.HomeCommand;
 import com.fendrixx.iLikeHomes.commands.HomesCommand;
 import com.fendrixx.iLikeHomes.commands.ReloadCommand;
@@ -52,8 +55,10 @@ public class Main extends JavaPlugin {
         getCommand("homes").setExecutor(new HomesCommand(this.guiManager));
         getCommand("home").setExecutor(new HomeCommand(this.configHandler, this.messageManager, this.teleportManager));
         getCommand("ilikehomes").setExecutor(new ReloadCommand(this));
-        getCommand("ilikehomes").setTabCompleter(new HomeTabCompleter(this.configHandler));
+        getCommand("ilikehomes").setTabCompleter(new ReloadTabCompleter());
         getCommand("home").setTabCompleter(new HomeTabCompleter(this.configHandler));
+        getCommand("delhome").setExecutor(new DelHomeCommand(this.configHandler, this.messageManager, this));
+        getCommand("delhome").setTabCompleter(new DelHomeTabCompleter(this.configHandler));
 
         getServer().getPluginManager().registerEvents(
                 new InventoryListener(this.guiManager, this.configHandler, teleportManager, messageManager), this);
@@ -93,9 +98,9 @@ public class Main extends JavaPlugin {
         // reload messages.yml
         File messagesFile = new File(getDataFolder(), "messages.yml");
         FileConfiguration messagesConfig = YamlConfiguration.loadConfiguration(messagesFile);
+        this.messageManager.setConfiguration(messagesConfig);
 
         // update handlers
-        this.messageManager = new MessagesHandler(messagesConfig);
         this.teleportManager = new TeleportManager(this, this.messageManager, this.configHandler);
 
         // update gui manager

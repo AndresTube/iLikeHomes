@@ -90,17 +90,18 @@ public class ConfigHandler {
     }
 
     public int getHomeCount(UUID uuid) {
-        if (config.getConfigurationSection(uuid.toString()) == null) {
+        if (config.getConfigurationSection("players." + uuid.toString()) == null) {
             return 0;
         }
-        return config.getConfigurationSection(uuid.toString()).getKeys(false).size();
+        return config.getConfigurationSection("players." + uuid.toString()).getKeys(false).size();
     }
 
     public List<String> getHomeList(UUID uuid) {
         List<String> homes = new ArrayList<>();
-        if (config.getConfigurationSection(uuid.toString()) != null) {
-            // obtain names and put it all in the list
-            homes.addAll(config.getConfigurationSection(uuid.toString()).getKeys(false));
+        String path = "players." + uuid.toString();
+
+        if (config.getConfigurationSection(path) != null) {
+            homes.addAll(config.getConfigurationSection(path).getKeys(false));
         }
         return homes;
     }
@@ -114,7 +115,7 @@ public class ConfigHandler {
     }
 
     public void deleteHome(UUID uuid, String homeName) {
-        config.set(uuid.toString() + "." + homeName, null);
+        config.set("players." + uuid.toString() + "." + homeName, null);
         saveConfig();
     }
 }
