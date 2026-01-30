@@ -4,9 +4,9 @@ main: com.fendrixx.iLikeHomes.Main
 
 commands:
   ilikehomes:
-    description: Reload the plugin/Main command
-    usage: /ilikehomes reload
-    permission: ilikehomes.reload
+    description: Main command
+    usage: /ilikehomes <reload|help>
+    aliases: [ilh, ilhomes]
   sethome:
     description: Set a home
     usage: /sethome <name>
@@ -28,6 +28,9 @@ permissions:
   ilikehomes.reload:
     description: Reload the plugin/Main command
     default: op
+  ilikehomes.help:
+    description: Call the help chat
+    default: true
   ilikehomes.sethome:
     description: Set a home
     default: true
