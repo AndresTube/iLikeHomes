@@ -4,6 +4,7 @@ home-set: "&ahome '%home%' set!"
 no-home-error: "&cyou don't have any homes!"
 wrong-usage: "&cwrong usage! use &f/sethome <name>"
 wrong-usage-home: "&cwrong usage! use &f/home <name>"
+wrong-usage-delhome: "&cwrong usage! use &f/delhome <name>"
 max-homes-reached: "&cyou have reached the maximum amount of homes!"
 
 teleport-start: "&6you are being teleported to &f%home%&6! wait &e%seconds% &6seconds..."

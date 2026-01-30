@@ -13,7 +13,7 @@ public class ReloadTabCompleter implements TabCompleter {
         if (command.getName().equalsIgnoreCase("ilikehomes")) {
             // only first argument
             if (args.length == 1) {
-                return List.of("reload");
+                return List.of("reload", "help");
             }
         }
         return new ArrayList<>();

@@ -26,7 +26,7 @@ public class DelHomeCommand implements CommandExecutor {
         Player p = (Player) sender;
 
         if (args.length == 0) {
-            p.sendMessage(messageManager.getMessage("wrong-usage"));
+            p.sendMessage(messageManager.getMessage("wrong-usage-delhome"));
             return true;
         }
 
