@@ -8,9 +8,10 @@ max-homes-reached: "&cyou have reached the maximum amount of homes!"
 
 teleport-start: "&6you are being teleported to &f%home%&6! wait &e%seconds% &6seconds..."
 teleport-success: "&ateleported to &f%home%&a!"
-
 teleport-cancelled: "&cyou moved, teleport cancelled!"
 
+home-deleted: "&ahome '%home%' deleted!"
+home-doesnt-exist: "&chome even doesn't exist!"
 
 # GUI
 gui-title: "&8» &fMy Homes"

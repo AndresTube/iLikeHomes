@@ -37,7 +37,7 @@ public class GuiManager implements InventoryHolder {
         Set<String> homes = configHandler.getHomeNames(p.getUniqueId());
 
         if (homes == null || homes.isEmpty()) {
-            p.sendMessage(messageManager.getMessage("no-homes-error"));
+            p.sendMessage(messageManager.getMessage("no-home-error"));
             return;
         }
 
