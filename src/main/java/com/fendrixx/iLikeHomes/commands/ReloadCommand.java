@@ -5,7 +5,6 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 
 import com.fendrixx.iLikeHomes.Main;
-import com.fendrixx.iLikeHomes.utils.TextCenter;
 
 public class ReloadCommand implements CommandExecutor {
     private Main plugin;
@@ -24,9 +23,8 @@ public class ReloadCommand implements CommandExecutor {
                     + "§a/homes §7- Open a GUI with all your homes\n"
                     + "§a/ilikehomes reload §7- Reload the plugin\n"
                     + "§a/ilikehomes help §7- Shows this message\n"
-                    + "§a=========================================";
-            String centered = TextCenter.centerText(text);
-            sender.sendMessage(centered);
+                    + "§a==============================";
+            sender.sendMessage(text);
             return true;
         }
 
@@ -49,9 +47,8 @@ public class ReloadCommand implements CommandExecutor {
                         + "§a/homes §7- Open a GUI with all your homes\n"
                         + "§a/ilikehomes reload §7- Reload the plugin\n"
                         + "§a/ilikehomes help §7- Shows this message\n"
-                        + "§a=========================================";
-                String centered = TextCenter.centerText(text);
-                sender.sendMessage(centered);
+                        + "§a==============================";
+                sender.sendMessage(text);
                 return true;
             }
             sender.sendMessage("§8[§6i§eLike§6Homes§8] §cYou don't have permission to use this command!");

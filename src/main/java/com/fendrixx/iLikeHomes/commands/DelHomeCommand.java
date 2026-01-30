@@ -38,7 +38,7 @@ public class DelHomeCommand implements CommandExecutor {
         }
 
         configHandler.deleteHome(p.getUniqueId(), homeName);
-        p.sendMessage(messageManager.getMessage("home-deleted"));
+        p.sendMessage(messageManager.getMessage("home-deleted", homeName));
         return true;
     }
 }
