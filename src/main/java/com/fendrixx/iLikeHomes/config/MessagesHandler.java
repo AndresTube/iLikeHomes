@@ -20,21 +20,17 @@ public class MessagesHandler {
         this.prefix = colorize(config.getString("prefix", "&8[&6i&eLike&6Homes&8] &f"));
     }
 
-    // translate colors
     public String colorize(String text) {
         if (text == null)
             return "";
         return org.bukkit.ChatColor.translateAlternateColorCodes('&', text);
     }
 
-    // auto-prefix
     public String getMessage(String path, String... replacements) {
         String msg = config.getString(path);
         if (msg == null)
-            // bip bip error system
             return "§cMissing message: " + path;
 
-        // if we pass a replacement (e.g. the name of the house), we replace it ez
         if (replacements.length > 0) {
             msg = msg.replace("%home%", replacements[0]);
         }
@@ -59,6 +55,6 @@ public class MessagesHandler {
             msg = msg.replace("%seconds%", replacements[1]);
         }
 
-        return colorize(msg); // no prefix for better looking gui
+        return colorize(msg);
     }
 }

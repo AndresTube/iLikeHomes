@@ -4,5 +4,42 @@ teleport-warmup: 3
 # max homes a player can have (ignored with OP)
 max-homes: 5
 
+# database configuration
+# type: SQLITE or MYSQL
+database:
+  type: "SQLITE"
+  
+  # only needed for MYSQL
+  host: "localhost"
+  port: 3306
+  name: "ilikehomes"
+  user: "root"
+  password: ""
+  
+  # enable debug messages in console
+  debug: false
 
-# this config is short as hell bro XDDD
+# home icons configuration
+icons:
+  enabled: true
+  available-icons:
+    - "CHEST"
+    - "ENDER_CHEST"
+    - "GRASS_BLOCK"
+    - "COBBLESTONE"
+    - "OAK_LOG"
+    - "CRAFTING_TABLE"
+    - "FURNACE"
+    - "IRON_INGOT"
+    - "GOLD_INGOT"
+    - "DIAMOND"
+    - "REDSTONE"
+    - "LAPIS_LAZULI"
+    - "EMERALD"
+    - "QUARTZ"
+    - "TNT"
+    - "BOOK"
+    - "COMPASS"
+    - "CLOCK"
+    - "SKELETON_SKULL"
+    - "ZOMBIE_HEAD"

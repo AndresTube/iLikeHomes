@@ -17,7 +17,6 @@ import com.fendrixx.iLikeHomes.config.ConfigHandler;
 import com.fendrixx.iLikeHomes.config.MessagesHandler;
 
 public class TeleportManager implements Listener {
-    // hashmap of "waiting room" or smth like that
     private final Map<UUID, BukkitTask> waitingPlayers = new HashMap<>();
     private final MessagesHandler messageManager;
     private final JavaPlugin plugin;
@@ -34,14 +33,11 @@ public class TeleportManager implements Listener {
         Location from = event.getFrom();
         Location to = event.getTo();
 
-        // if error (i think this doesnt gonna happen LOL)
         if (to == null)
             return;
 
-        // check if player moved
         if (from.getX() != to.getX() || from.getY() != to.getY() || from.getZ() != to.getZ()) {
             Player player = event.getPlayer();
-            // cancel if player is in waiting list
             if (waitingPlayers.containsKey(player.getUniqueId())) {
                 cancelTeleport(player);
             }
@@ -51,41 +47,31 @@ public class TeleportManager implements Listener {
     public void setupTeleport(Player player, Location destination, String homeName) {
         UUID uuid = player.getUniqueId();
 
-        // cancel if player is in waiting list
         if (waitingPlayers.containsKey(uuid)) {
             cancelTeleport(player);
         }
 
-        // get time from config
         int seconds = plugin.getConfig().getInt("teleport-warmup", 3);
         player.sendMessage(messageManager.getMessage("teleport-start", homeName, String.valueOf(seconds)));
 
-        // create task
         BukkitTask task = new BukkitRunnable() {
             @Override
             public void run() {
                 player.teleport(destination);
                 player.sendMessage(messageManager.getMessage("teleport-success", homeName));
-                waitingPlayers.remove(uuid); // remove from map
+                waitingPlayers.remove(uuid);
             }
         }.runTaskLater(plugin, seconds * 20L);
 
-        // save task in map
         waitingPlayers.put(uuid, task);
     }
 
     public void cancelTeleport(Player player) {
         UUID uuid = player.getUniqueId();
 
-        // check if has a teleport pending
         if (waitingPlayers.containsKey(uuid)) {
-            // cancel task
             waitingPlayers.get(uuid).cancel();
-
-            // remove from map
             waitingPlayers.remove(uuid);
-
-            // send message
             player.sendMessage(messageManager.getMessage("teleport-cancelled"));
         }
     }

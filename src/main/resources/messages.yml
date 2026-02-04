@@ -1,20 +1,28 @@
 prefix: "&8[&6i&eLike&6Homes&8] &f"
 
-home-set: "&ahome '%home%' set!"
-no-home-error: "&cyou don't have any homes!"
-wrong-usage: "&cwrong usage! use &f/sethome <name>"
-wrong-usage-home: "&cwrong usage! use &f/home <name>"
-wrong-usage-delhome: "&cwrong usage! use &f/delhome <name>"
-max-homes-reached: "&cyou have reached the maximum amount of homes!"
+home-set: "&aHome '%home%' set!"
+no-home-error: "&cYou don't have any homes!"
+wrong-usage: "&cWrong usage! use &f/sethome <name>"
+wrong-usage-home: "&cWrong usage! use &f/home <name>"
+wrong-usage-delhome: "&cWrong usage! use &f/delhome <name>"
+max-homes-reached: "&cYou have reached the maximum amount of homes!"
 
-teleport-start: "&6you are being teleported to &f%home%&6! wait &e%seconds% &6seconds..."
-teleport-success: "&ateleported to &f%home%&a!"
-teleport-cancelled: "&cyou moved, teleport cancelled!"
+teleport-start: "&6You are being teleported to &f%home%&6! wait &e%seconds% &6seconds..."
+teleport-success: "&aTeleported to &f%home%&a!"
+teleport-cancelled: "&cYou moved, teleport cancelled!"
 
-home-deleted: "&ahome '%home%' deleted!"
-home-doesnt-exist: "&chome even doesn't exist!"
+home-deleted: "&aHome '%home%' deleted!"
+home-doesnt-exist: "&cHome even doesn't exist!"
 
 # GUI
 gui-title: "&8» &fMy Homes"
 home-item-name: "&f%home%"
 home-item-lore: "&7Click to teleport to your home"
+new-home-item-name: "&aNew Home"
+new-home-item-lore: "&7Click to create a new home"
+new-home-item-message: "&6Click to create a new home"
+
+# Icon Picker
+icon-picker-title: "&8» &fChoose an Icon"
+icon-selected: "&aIcon selected for &f%home%&a!"
+
